@@ -1,0 +1,21 @@
+[submodule "Hyperai.Core"]
+	path = Hyperai.Core
+	url = https://github.com/theGravityLab/Hyperai.Core.git
+[submodule "Hyperai.Abstractions"]
+	path = Hyperai.Abstractions
+	url = https://github.com/theGravityLab/Hyperai.Abstractions.git
+[submodule "Hyperai.Units.Abstractions"]
+	path = Hyperai.Units.Abstractions
+	url = https://github.com/theGravityLab/Hyperai.Units.Abstractions.git
+[submodule "Hyperai.Clients.Fake"]
+	path = Hyperai.Clients.Fake
+	url = https://github.com/theGravityLab/Hyperai.Clients.Fake.git
+[submodule "Hyperai.Units"]
+	path = Hyperai.Units
+	url = https://github.com/theGravityLab/Hyperai.Units.git
+[submodule "HyperaiShell.App"]
+	path = HyperaiShell.App
+	url = https://github.com/theGravityLab/HyperaiShell.App.git
+[submodule "HyperaiShell.Starter"]
+	path = HyperaiShell.Starter
+	url = https://github.com/theGravityLab/HyperaiShell.Starter.git
