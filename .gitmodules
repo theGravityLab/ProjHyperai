@@ -19,3 +19,9 @@
 [submodule "HyperaiShell.Starter"]
 	path = HyperaiShell.Starter
 	url = https://github.com/theGravityLab/HyperaiShell.Starter.git
+[submodule "Ac682.Hyperai.Clients.Mirai"]
+	path = Ac682.Hyperai.Clients.Mirai
+	url = https://github.com/ac682/Ac682.Hyperai.Clients.Mirai.git
+[submodule "HyoeraiShell.Foundation"]
+	path = HyoeraiShell.Foundation
+	url = https://github.com/theGravityLab/HyoeraiShell.Foundation
