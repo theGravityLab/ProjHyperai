@@ -25,3 +25,6 @@
 [submodule "HyoeraiShell.Foundation"]
 	path = HyoeraiShell.Foundation
 	url = https://github.com/theGravityLab/HyoeraiShell.Foundation
+[submodule "HyperaiShell.Foundation"]
+	path = HyperaiShell.Foundation
+	url = https://github.com/theGravityLab/HyperaiShell.Foundation
