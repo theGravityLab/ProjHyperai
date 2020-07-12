@@ -22,9 +22,12 @@
 [submodule "Ac682.Hyperai.Clients.Mirai"]
 	path = Ac682.Hyperai.Clients.Mirai
 	url = https://github.com/ac682/Ac682.Hyperai.Clients.Mirai.git
-[submodule "HyoeraiShell.Foundation"]
-	path = HyoeraiShell.Foundation
+[submodule "HyperaiShell.Foundation"]
+	path = HyperaiShell.Foundation
 	url = https://github.com/theGravityLab/HyoeraiShell.Foundation
 [submodule "HyperaiShell.Foundation"]
 	path = HyperaiShell.Foundation
 	url = https://github.com/theGravityLab/HyperaiShell.Foundation
+[submodule "Ac682.Hyperai.Plugins.Essential"]
+	path = Ac682.Hyperai.Plugins.Essential
+	url = https://github.com/ac682/Ac682.Hyperai.Plugins.Essential.git
