@@ -10,7 +10,6 @@ module.exports = resolve({
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: "The document for Hyperai",
-  base: 'ProjHyperai',
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
