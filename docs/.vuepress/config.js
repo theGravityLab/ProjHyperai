@@ -67,7 +67,7 @@ module.exports = resolve({
           ]
       },
       {
-      	title: '开发 HyperaiShell 插件'
+      	title: '开发 HyperaiShell 插件',
       	collapsable: true,
       	children: [
       		'5.0.about.md'
