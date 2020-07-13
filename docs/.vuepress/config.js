@@ -10,7 +10,7 @@ module.exports = resolve({
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: "The document for Hyperai",
-
+  base: 'ProjHyperai',
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
@@ -48,32 +48,24 @@ module.exports = resolve({
     ],
     sidebar: {
       '/guide/': [
-      {
+        {
           title: '接触 ProjHyperai',
           collapsable: false,
           children: [
-            '0.0.about.md',
-            '0.1.how-to-read.md',
-            '0.2.contribute.md',
-          ]
-      },
-      {
+            '0.0.about.md', '0.1.how-to-read.md', '0.2.contribute.md',]
+        },
+        {
           title: '接触 HyperaiShell',
           collapsable: true,
-          children: [
-            '1.0.about.md',
-            '1.1.deploy.md',
-            '1.2.install-plugins.md'
-          ]
-      },
-      {
-      	title: '开发 HyperaiShell 插件',
-      	collapsable: true,
-      	children: [
-      		'5.0.about.md'
-      	]
-      }
-    ]}
+          children: ['1.0.about.md', '1.1.deploy.md', '1.2.install-plugins.md']
+        },
+        {
+          title: '开发 HyperaiShell 插件',
+          collapsable: true,
+          children: ['5.0.about.md']
+        }
+      ]
+    }
   },
 
   /**
