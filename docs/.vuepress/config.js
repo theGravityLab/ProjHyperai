@@ -27,6 +27,11 @@ module.exports = resolve({
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    comment: {
+      type: "valine",
+      appId: "5E98xJ67OtxxHBQDiqP451T3-gzGzoHsz",
+      appKey: "unWUiD4X3MthP60Do5XokH9G",
+    },
     markdown: {
       enableAll: true,
     },
@@ -61,7 +66,24 @@ module.exports = resolve({
         {
           title: '开发 HyperaiShell 插件',
           collapsable: true,
-          children: ['5.0.about', '5.1.knowledge', '5.2.preparation','5.3.first-plugin','5.4.dependencyinjection']
+          children: [
+            '5.0.about',
+            '5.1.knowledge',
+            '5.2.preparation',
+            '5.3.first-plugin',
+            '5.4.dependencyinjection',
+            '5.5.bots',
+            '5.6.units',
+            '5.7.code-layer',
+            '5.8.space',
+            '5.9.attachments',
+            '5.10.authorization',
+            '5.11.hyperaishell-functions']
+        },
+        {
+          title: '我把整篇文档看完了，但程序依旧不工作',
+          collapsable: false,
+          children: ['6.0.about']
         }
       ]
     }
