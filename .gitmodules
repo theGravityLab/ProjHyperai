@@ -4,3 +4,6 @@
 [submodule "Hyperai"]
 	path = Hyperai
 	url = https://github.com/theGravityLab/Hyperai
+[submodule "Hyperai.Units"]
+	path = Hyperai.Units
+	url = https://github.com/theGravityLab/Hyperai.Units
