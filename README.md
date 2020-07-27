@@ -11,8 +11,8 @@
 <!-- PROJECT LOGO -->
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/theGravityLab/ProjHyperai/master/.github/images/sucks.png">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/theGravityLab/ProjHyperai">
+    <img src=".github/images/sucks.png" alt="Logo" width="180" height="117">
   </a>
 </p>
 
