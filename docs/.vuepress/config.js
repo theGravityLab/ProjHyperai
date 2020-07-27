@@ -59,9 +59,14 @@ module.exports = resolve({
             '0.0.about', '0.1.how-to-read', '0.2.contribute',]
         },
         {
+          title: '接触 Hyperai',
+          collapsable: true,
+          children: ['1.0.about.md']
+        },
+        {
           title: '接触 HyperaiShell',
           collapsable: true,
-          children: ['1.0.about', '1.1.deploy', '1.2.install-plugins']
+          children: ['2.0.about', '2.1.deploy', '2.2.install-plugins']
         },
         {
           title: '开发 HyperaiShell 插件',
