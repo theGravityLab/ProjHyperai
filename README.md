@@ -40,7 +40,7 @@ ProjHyperai 具有以下子项目
 2. [Hyperai.Units](https://github.com/theGravityLab/Hyperai.Units) - 可集成到 Hyperai Application 的模块, 提供类似 MVC 中 Controller 的开发体验.
 3. [HyperaiShell](https://github.com/theGravityLab/HyperaiShell) -  个人自己实现的 Hyperai Application , 集成了大部分模块和服务, 开箱即用, 用插件扩展. 除非你觉得能做的更好, 不然就用它吧. 
 
-###### 如何选择一个子项目并继续开发?
+#### 如何选择一个子项目并继续开发?
 
 // TODO: 为子项目添加 README.md 和集成指南
 
