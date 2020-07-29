@@ -1,7 +1,7 @@
 ---
 home: true
 # heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: 一个包含了机器人框架/插件化可运行程序/SMS适配器的项目集合
+tagline: 一个包含了机器人框架/插件化可运行程序/IM适配器的项目集合
 action:
   - text: 快速上手 →
     link: /guide/0.0.about
