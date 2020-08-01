@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://github.com/theGravityLab/ProjHyperai">
-    <img src=".github/images/sucks.png" alt="Logo" width="180" height="117">
+    <img src="docs/images/sucks.png" alt="Logo" width="180" height="117">
   </a>
 </p>
 
@@ -32,7 +32,7 @@
   </p>
 
 
-## 导航
+## 导航 | Guide
 
 ProjHyperai 具有以下子项目
 
@@ -40,7 +40,7 @@ ProjHyperai 具有以下子项目
 2. [Hyperai.Units](https://github.com/theGravityLab/Hyperai.Units) - 可集成到 Hyperai Application 的模块, 提供类似 MVC 中 Controller 的开发体验.
 3. [HyperaiShell](https://github.com/theGravityLab/HyperaiShell) -  个人自己实现的 Hyperai Application , 集成了大部分模块和服务, 开箱即用, 用插件扩展. 除非你觉得能做的更好, 不然就用它吧. 
 
-#### 如何选择一个子项目并继续开发?
+#### 如何选择一个子项目并继续开发? | How To Begin
 
 // TODO: 为子项目添加 README.md 和集成指南
 
@@ -50,11 +50,11 @@ ProjHyperai 具有以下子项目
 - 不想写那么多胶水代码, 只想专注于机器人的特定功能 => HyperaiShell + 自己写的插件
 - 我全都要 => HyperaiShell + 来自社区的插件 + 自己写的插件
 
-## 开发体验
+## 开发体验 | Development Experience
 
 *指 HyperaiShell 插件的开发体验, 反正前几个都没人用…*
 
-#### 消息构造
+#### 消息构造 | MessageChain Construction
 
 ```csharp
 public override void OnMemberJoin(object sender, GroupMemberJoinEventArgs args)
@@ -79,7 +79,7 @@ public override void OnMemberLeave(object sender, GroupMemberLeaveEventArgs args
 }
 ```
 
-#### 消息处理
+#### 消息处理 | Message Handling
 
 ```csharp
 // MessageChain 本质是 IEnumerabe<MessageComponent>,
@@ -100,7 +100,7 @@ var hypertext = MessageChain.Construct(new At(10000), new Plain("我俏丽吗!")
 // 因为后者不一定会把 @某人 转换为文本"at", 甚至可能转换为"@了某个人"
 ```
 
-#### 发送消息: 和好友的友好互动
+#### 发送消息: 和好友的友好互动 | Message Sending
 
 ```csharp
 private async Task DelayedTask(Friend friend)
@@ -124,9 +124,9 @@ private async Task DelayedTask(Friend friend)
 }
 ```
 
-#### 事件处理
+#### 事件处理 | Event Handling
 
-###### 顶层接收器
+##### 顶层接收器 | Top-receivers
 
 ```csharp
 void Foo(IApiClient client)
@@ -135,7 +135,7 @@ void Foo(IApiClient client)
 }
 ```
 
-###### 中间件
+##### 中间件 | Middlewares
 
 ```csharp
 void Bar(IHyperaiApplicationBuilder app)
@@ -158,7 +158,7 @@ class FooBarMiddleware: IMiddleware
 }
 ```
 
-###### 实现一个 Bots 模块中定义的 Bot
+##### 实现一个 Bots 模块中定义的 Bot | Custom Bots
 
 ```csharp
 void Fuck(IBotCollectionBuilder builder)
@@ -176,7 +176,7 @@ class FuckingBot: BotBase
 }
 ```
 
-###### 实现一个 Units 模块中定义的 Unit
+##### 实现一个 Units 模块中定义的 Unit | Units and Actions
 
 ```csharp
 void Suck()
@@ -199,11 +199,11 @@ class UnitSucks: UnitBase
 }
 ```
 
-#### 读配置
+#### 读配置 | Retrieving Configuration
 
 *配置是只读的, 就别想着怎么写了; 就算写也只是 in-memory, 不会保存到文件的*
 
-###### 读 HyperaiShell 的程序配置
+##### 读 HyperaiShell 的程序配置 | Configuration of HyperaiShell
 
 ```csharp
 // 只能依赖注入
@@ -226,7 +226,7 @@ class Rock
 }
 ```
 
-###### HyperaiShell 的插件读 HyperaiShell 插件的配置(也就是自己的配置)
+##### HyperaiShell 的插件读 HyperaiShell 插件的配置(也就是自己的配置) | Configuration of the Plugin Itself
 
 ```csharp
 class APlugin: PluginBase
@@ -251,44 +251,44 @@ class AnUnit: UnitBase
 }
 ```
 
-#### 访问数据库
+#### 访问数据库 | Access to LiteDb
 
 ```csharp
 // 和上一部分是一样的, HyperaiShell 中的数据库由 LiteDb 提供
 // 对应的类型为 IRepository 和为插件用的 IPluginRepository<TPlugin>
 ```
 
-## 使用本仓库
+## 使用本仓库 | Contributing to this Repo
 
 本仓库包含多个子项目, 并提供了一个 Visual Studio 解决方案用于同时控制子项目.
 
 **请不要在 `master` 分支上开发.**
 
-#### 写代码
+#### 写代码 | Coding
 
 不同子项目之间依赖包而不是项目, 想要快速应用某个子项目的更改到其他项目请将该子项目打包并**添加到本地的离线包源**.
 
-###### 克隆
+##### 克隆 | Clone
 
 ```bash
 git clone --recursice https://github.com/theGravityLab/ProjHyperai.git
 git checkout dev
 ```
 
-#### 写文档
+#### 写文档 | Documents
 
 使用文本编辑器打开 `./docs` 目录即可开始工作. 提交 pr 即可应用修改.
 
 // TODO: 不知道有没有 pr merged 的 trigger, 有请告知.
 
-###### 克隆
+##### 克隆 | Clone
 
 ```bash
 git clone https://github.com/theGravityLab/ProjHyperai.git
 git checkout dev
 ```
 
-## 引用
+## 引用 | Reference
 
 - [Best README template](https://github.com/shaojintian/Best_README_template/blob/master/README.md)
 - [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
