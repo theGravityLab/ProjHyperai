@@ -76,7 +76,7 @@ module.exports = resolve({
             '5.1.knowledge',
             '5.2.preparation',
             '5.3.first-plugin',
-            '5.4.dependencyinjection',
+            '5.4.dependency-injection',
             '5.5.bots',
             '5.6.units',
             '5.7.code-layer',
