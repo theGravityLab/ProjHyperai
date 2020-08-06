@@ -83,13 +83,23 @@ module.exports = resolve({
             '5.8.space',
             '5.9.attachments',
             '5.10.authorization',
-            '5.11.hyperaishell-functions']
+            '5.99.publish-plugin']
         },
         {
           title: '我把整篇文档看完了，但程序依旧不工作',
           collapsable: false,
           children: ['6.0.about']
         }
+      ],
+      '/manual': [
+          {
+          	title: 'ProjHyperai 手册',
+          	collapsable: false,
+          	children: [
+          		'README',
+          		'message.md'
+          	]
+          }
       ]
     }
   },
