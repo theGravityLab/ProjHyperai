@@ -46,6 +46,10 @@ module.exports = resolve({
         link: '/guide/0.0.about'
       },
       {
+        text: '手册',
+        link: '/manual/README'
+      },
+      {
         text: 'Github',
         link: 'https://github.com/theGravityLab/ProjHyperai'
       }
