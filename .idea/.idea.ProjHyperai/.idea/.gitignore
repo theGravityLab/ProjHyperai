@@ -1,0 +1,13 @@
+# 默认忽略的文件
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.ProjHyperai.iml
+/contentModel.xml
+/modules.xml
+/projectSettingsUpdater.xml
+# 数据源本地存储已忽略文件
+/../../../../../../../../:\Users\zqy02\Projects\ProjHyperai\.idea\.idea.ProjHyperai\.idea/dataSources/
+/dataSources.local.xml
+# 基于编辑器的 HTTP 客户端请求
+/httpRequests/
