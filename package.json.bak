@@ -12,7 +12,14 @@
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
+  "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.8.2"
+    "@vuepress/plugin-back-to-top": "^1.3.1",
+    "@vuepress/plugin-medium-zoom": "^1.3.1",
+    "vuepress": "^1.3.1",
+    "vuepress-theme-hope": "^0.7.0"
+  },
+  "dependencies": {
+    "@vuepress/shared-utils": "^1.8.2"
   }
 }

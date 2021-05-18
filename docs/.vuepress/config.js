@@ -47,7 +47,7 @@ module.exports = resolve({
       },
       {
         text: '手册',
-        link: '/manual/README'
+        link: '/manual/'
       },
       {
         text: 'Github',
