@@ -15,15 +15,15 @@ pipeline {
 
     stage('Prepare Enviroment') {
       steps {
-        sh '''rm ~/HyperaiShell/*.dll
-rm ~/HyperaiShell/*.so
-rm ~/HyperaiShell/HyperaiShell.App'''
+        sh '''rm %WORKSPACE%/HyperaiShell/*.dll
+rm %WORKSPACE%/HyperaiShell/*.so
+rm %WORKSPACE%/HyperaiShell/HyperaiShell.App'''
       }
     }
 
     stage('Publish to Production') {
       steps {
-        sh 'cp ./HyperaiShell/HyperaiShell.App/bin/debug/net5.0/linux-x64/publish/* ~/HyperaiShell'
+        sh 'cp %WORKSPACE%/HyperaiShell/HyperaiShell.App/bin/debug/net5.0/linux-x64/publish/* /home/app/HyperaiShell'
       }
     }
 
