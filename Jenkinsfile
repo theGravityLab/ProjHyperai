@@ -15,9 +15,9 @@ pipeline {
 
     stage('Prepare Enviroment') {
       steps {
-        sh '''rm %WORKSPACE%/HyperaiShell/*.dll
-rm %WORKSPACE%/HyperaiShell/*.so
-rm %WORKSPACE%/HyperaiShell/HyperaiShell.App'''
+        sh '''rm home/app/HyperaiShell/*.dll
+rm home/app/HyperaiShell/*.so
+rm home/app/HyperaiShell/HyperaiShell.App'''
       }
     }
 
