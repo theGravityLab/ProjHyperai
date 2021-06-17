@@ -21,7 +21,7 @@ rm ~/HyperaiShell/HyperaiShell.App'''
       }
     }
 
-    stage('') {
+    stage('Publish to Production') {
       steps {
         sh 'cp ./HyperaiShell/HyperaiShell.App/bin/debug/net5.0/linux-x64/publish/* ~/HyperaiShell'
       }
