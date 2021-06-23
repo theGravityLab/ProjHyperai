@@ -84,7 +84,7 @@ class Build : NukeBuild
         .DependsOn(Clean)
         .Executes(() =>
         {
-            foreach (var project in Solution.AllProjects.Where(x=> x.Name != "_build" && x.Name != "HyperaiShell.App"))
+            foreach (var project in Solution.AllProjects.Where(x=> x.GetOutputType() == "Library"))
             {
                 DotNetPack(c => c
                     .SetProcessWorkingDirectory(project.Directory)
