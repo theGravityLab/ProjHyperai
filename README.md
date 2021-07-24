@@ -42,8 +42,6 @@ ProjHyperai 具有以下子项目
 
 #### 如何选择一个子项目并继续开发? | How To Begin
 
-// TODO: 为子项目添加 README.md 和集成指南
-
 - 我想自己构造机器人程序或集成 Hyperai 到已有的程序中 => Hyperai
 - 除了上一条, 我还想有 Units 模块 => Hyperai + Hyperai.Units
 - 我不想写代码, 只想白嫖 => HyperaiShell + 来自社区的插件
