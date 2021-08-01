@@ -260,8 +260,6 @@ class AnUnit: UnitBase
 
 本仓库包含多个子项目, 并提供了一个 Visual Studio 解决方案用于同时控制子项目.
 
-**请不要在 `master` 分支上开发.**
-
 #### 写代码 | Coding
 
 不同子项目之间依赖包而不是项目, 想要快速应用某个子项目的更改到其他项目请将该子项目打包并**添加到本地的离线包源**.
@@ -276,8 +274,6 @@ git checkout dev
 #### 写文档 | Documents
 
 使用文本编辑器打开 `./docs` 目录即可开始工作. 提交 pr 即可应用修改.
-
-// TODO: 不知道有没有 pr merged 的 trigger, 有请告知.
 
 ##### 克隆 | Clone
 
