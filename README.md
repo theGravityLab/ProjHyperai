@@ -48,6 +48,7 @@ ProjHyperai 具有以下子项目
 - 不想写那么多胶水代码, 只想专注于机器人的特定功能 => HyperaiShell + 自己写的插件
 - 我全都要 => HyperaiShell + 来自社区的插件 + 自己写的插件
 
+
 ## 开发体验 | Development Experience
 
 *指 HyperaiShell 插件的开发体验, 反正前几个都没人用…*
