@@ -75,7 +75,7 @@ class Build : NukeBuild
         .DependsOn(Clean)
         .Executes(() =>
         {
-            foreach (var project in Solution.AllProjects.Where(x => x.GetOutputType() == "Library"))
+            foreach (var project in Solution.AllProjects.Where(x => x.Name != nameof(Build)))
                 DotNetPack(c => c
                     .SetProcessWorkingDirectory(project.Directory)
                     .SetOutputDirectory(ArtifactsDirectory));
