@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hyperai.Units</RootNamespace>
+    <PackageId>Hyperai.Units.Abstractions</PackageId>
+    <Version>2021.9.1</Version>
+    <Authors>GravityLab</Authors>
+    <Company>Unicore</Company>
+    <PackageDescription>Hyperai.Units.Abstractions</PackageDescription>
+    <RepositoryUrl>https://github.com/theGravityLab/Hyperai.Units</RepositoryUrl>
+    <Product>Hyperai.Units</Product>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Hyperai\Hyperai.Abstractions\Hyperai.Abstractions.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,9 +1,0 @@
-[submodule "HyperaiShell"]
-	path = HyperaiShell
-	url = https://github.com/theGravityLab/HyperaiShell.git
-[submodule "Hyperai"]
-	path = Hyperai
-	url = https://github.com/theGravityLab/Hyperai.git
-[submodule "Hyperai.Units"]
-	path = Hyperai.Units
-	url = https://github.com/theGravityLab/Hyperai.Units.git

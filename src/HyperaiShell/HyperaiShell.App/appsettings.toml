@@ -1,0 +1,20 @@
+[Application]
+SelectedProfile = "gocqhttp"
+SentryEnabled = false
+DashboardEnabled = false # not working
+Daddy = 10001
+
+[Sentry]
+Dsn = "YOUR_DSN"
+MinimumEventLevel = "Warning"
+AttachStackTrace = true
+
+[[Clients]]
+Name = "gocqhttp"
+ClientTypeDefined = "Ac682.Hyperai.Clients.CQHTTP.CQClient,Ac682.Hyperai.Clients.CQHTTP"
+OptionsTypeDefined = "Ac682.Hyperai.Clients.CQHTTP.CQClientOptions,Ac682.Hyperai.Clients.CQHTTP"
+[Clients.Options]
+HttpPort = 6259
+WebSocketPort = 6260
+Host = "HOST"
+AccessToken = "ACCESS_TOKEN"
