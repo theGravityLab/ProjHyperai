@@ -17,14 +17,14 @@
 </p>
 
 
-  <h3 align="center">ProjHyperai</h3>
+<h3 align="center">ProjHyperai</h3>
   <p align="center">
     QQ/TG 机器人开发在这入门
     <br />
     <a href="https://projhyperai.dowob.vip"><strong>本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="https://jq.qq.com/?_wv=1027&k=oygKDvyw">加入群聊</a>
+    <a href="https://github.com/theGravityLab/ProjHyperai/discussions">加入讨论</a>
     ·
     <a href="https://github.com/theGravityLab/ProjHyperai/issues">报告问题</a>
     ·
@@ -32,7 +32,7 @@
   </p>
 
 
-## 导航 | Guide
+## 📖 导航 | Guide
 
 ProjHyperai 具有以下子项目
 
@@ -49,7 +49,19 @@ ProjHyperai 具有以下子项目
 - 我全都要 => HyperaiShell + 来自社区的插件 + 自己写的插件
 
 
-## 开发体验 | Development Experience
+## 📦 可用的包状态 | Package List
+
+| Identity | Summary | Status |
+| :-- | :-- | :-- |
+| Hyperai.Abstractions | 关于即时通讯涉及的基础类型和接口 | ![Nuget](https://img.shields.io/nuget/v/Hyperai.Abstractions?style=for-the-badge) |
+| Hyperai.Core | 实现了部分接口以用于构建 dotnet 通用主机 | ![Nuget](https://img.shields.io/nuget/v/Hyperai.Core?style=for-the-badge) |
+| Hyperai.Units.Abstractions | 关于 Hyperai.Units 的一般基础类型和接口 | ![Nuget](https://img.shields.io/nuget/v/Hyperai.Units.Abstractions?style=for-the-badge) |
+| Hyperai.Units | Units 服务接口的实现和 MSDI 的依赖注入扩展 | ![Nuget](https://img.shields.io/nuget/v/Hyperai.Units?style=for-the-badge) |
+| HyperaiShell.Foundation | 构建 HyperaiShell 的插件所需要的所有基础类型 | ![Nuget](https://img.shields.io/nuget/v/HyperaiShell.Foundation?style=for-the-badge) |
+
+
+
+## 🧙🏻 开发体验 | Development Experience
 
 *指 HyperaiShell 插件的开发体验, 反正前几个都没人用…*
 

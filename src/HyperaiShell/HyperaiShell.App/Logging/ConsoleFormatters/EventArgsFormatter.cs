@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Ac682.Extensions.Logging.Console;
 using Hyperai.Events;
+using Spectre.Console;
 
 namespace HyperaiShell.App.Logging.ConsoleFormatters
 {
@@ -12,12 +13,9 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             return type.IsAssignableTo(typeof(GenericEventArgs));
         }
 
-        public IEnumerable<ColoredUnit> Format(object obj, Type type, string format = null)
+        public Markup Format(object obj, Type type, string format = null)
         {
-            return new[]
-            {
-                new ColoredUnit(obj.GetType().Name, ConsoleColor.Yellow)
-            };
+            return new Markup(obj.GetType().Name, new Style(Color.Yellow));
         }
     }
 }

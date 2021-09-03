@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Ac682.Extensions.Logging.Console;
 using Hyperai.Relations;
+using Spectre.Console;
 
 namespace HyperaiShell.App.Logging.ConsoleFormatters
 {
@@ -12,21 +13,17 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             return type.IsAssignableTo(typeof(RelationModel));
         }
 
-        public IEnumerable<ColoredUnit> Format(object obj, Type type, string format = null)
+        public Markup Format(object obj, Type type, string format = null)
         {
-            return new[]
+            var name = obj switch
             {
-                obj switch
-                {
-                    Friend friend => new ColoredUnit(friend.Nickname, ConsoleColor.DarkMagenta),
-                    Member member => new ColoredUnit(member.DisplayName, ConsoleColor.DarkMagenta),
-                    Group group => new ColoredUnit(group.Name, ConsoleColor.DarkMagenta),
-                    _ => new ColoredUnit(((RelationModel) obj).Identity.ToString())
-                },
-                new ColoredUnit("(", ConsoleColor.DarkGray),
-                new ColoredUnit(((RelationModel) obj).Identifier, ConsoleColor.Red),
-                new ColoredUnit(")", ConsoleColor.DarkGray)
+                Friend friend => friend.Nickname,
+                Member member => member.DisplayName,
+                Group group => group.Name,
+                RelationModel model => model.Identity.ToString(),
+                _ => obj.GetType().Name
             };
+            return new Markup($"[purple]{name}[/][grey]([/][red]{((RelationModel)obj).Identity}[/][grey])[/]");
         }
     }
 }

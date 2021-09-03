@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Ac682.Extensions.Logging.Console;
 using Hyperai.Messages;
 using Hyperai.Messages.ConcreteModels;
+using Spectre.Console;
 
 namespace HyperaiShell.App.Logging.ConsoleFormatters
 {
@@ -13,17 +14,14 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             return type.IsAssignableTo(typeof(MessageElement));
         }
 
-        public IEnumerable<ColoredUnit> Format(object obj, Type type, string format = null)
+        public Markup Format(object obj, Type type, string format = null)
         {
-            return new[]
+            return new Markup(obj switch
             {
-                obj switch
-                {
-                    Plain plain => new ColoredUnit($"\"{plain.Text}\"", ConsoleColor.DarkGreen),
-                    MessageElement ele => new ColoredUnit(ele.ToString(), ConsoleColor.DarkCyan),
-                    _ => new ColoredUnit("UNKNOWN", ConsoleColor.DarkGray)
-                }
-            };
+                Plain plain => $"[green]{plain.Text}[/]",
+                MessageElement ele => $"[darkcyan]{ele}[/]",
+                _ => $"[grey](UNKNOW)[/]"
+            });
         }
     }
 }
