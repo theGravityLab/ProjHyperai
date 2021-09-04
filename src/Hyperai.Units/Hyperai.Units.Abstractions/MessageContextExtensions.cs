@@ -13,7 +13,7 @@ namespace Hyperai.Units
             switch (context.Type)
             {
                 case MessageEventType.Friend:
-                    await context.Client.SendFriendMessageAsync((Friend) context.User, message);
+                    await context.Client.SendFriendMessageAsync((Friend)context.User, message);
                     break;
 
                 case MessageEventType.Group:

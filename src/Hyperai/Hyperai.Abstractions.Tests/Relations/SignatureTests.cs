@@ -10,7 +10,7 @@ namespace Hyperai.Abstractions.Tests.Relations
         [TestMethod]
         public void FriendAndFriend_True()
         {
-            var friend = new Friend {Identity = 123};
+            var friend = new Friend { Identity = 123 };
 
             var matcher = Signature.FromFriend(friend.Identity);
 
@@ -20,7 +20,7 @@ namespace Hyperai.Abstractions.Tests.Relations
         [TestMethod]
         public void FriendAndMember_False()
         {
-            var friend = new Friend {Identity = 123};
+            var friend = new Friend { Identity = 123 };
 
             var matcher = Signature.FromMember(321, friend.Identity);
 
@@ -30,7 +30,7 @@ namespace Hyperai.Abstractions.Tests.Relations
         [TestMethod]
         public void MemberAndMember_True()
         {
-            var member = new Member {Group = new Lazy<Group>(new Group {Identity = 321}), Identity = 123};
+            var member = new Member { Group = new Lazy<Group>(new Group { Identity = 321 }), Identity = 123 };
 
             var matcher = Signature.FromMember(member.Group.Value.Identity, member.Identity);
 
@@ -40,7 +40,7 @@ namespace Hyperai.Abstractions.Tests.Relations
         [TestMethod]
         public void AnyMember_True()
         {
-            var member = new Member {Group = new Lazy<Group>(new Group {Identity = 321}), Identity = 123};
+            var member = new Member { Group = new Lazy<Group>(new Group { Identity = 321 }), Identity = 123 };
 
             var matcher = Signature.FromGroup(321);
 
@@ -50,7 +50,7 @@ namespace Hyperai.Abstractions.Tests.Relations
         [TestMethod]
         public void AnyMember_False()
         {
-            var member = new Member {Group = new Lazy<Group>(new Group {Identity = 321}), Identity = 123};
+            var member = new Member { Group = new Lazy<Group>(new Group { Identity = 321 }), Identity = 123 };
 
             var matcher = Signature.FromGroup(233);
 

@@ -41,6 +41,9 @@ namespace Hyperai.Relations
         /// </summary>
         public GroupRole Role { get; set; }
 
-        public override string ToString() => $"{DisplayName ?? "NULL"}({Identifier ?? "UNKNOWN"})";
+        public override string ToString()
+        {
+            return $"{DisplayName ?? "NULL"}({Identifier ?? "UNKNOWN"})";
+        }
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Ac682.Extensions.Logging.Console;
 using Hyperai.Messages;
 using Hyperai.Messages.ConcreteModels;
@@ -20,7 +19,7 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             {
                 Plain plain => $"[green]{plain.Text}[/]",
                 MessageElement ele => $"[darkcyan]{ele}[/]",
-                _ => $"[grey](UNKNOW)[/]"
+                _ => "[grey](UNKNOW)[/]"
             });
         }
     }

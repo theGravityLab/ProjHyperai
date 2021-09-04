@@ -27,7 +27,7 @@ namespace Hyperai.Receipts
         public T Value<T>(string key)
         {
             if (Fields.ContainsKey(key))
-                return (T) Fields[key];
+                return (T)Fields[key];
             return default;
         }
     }

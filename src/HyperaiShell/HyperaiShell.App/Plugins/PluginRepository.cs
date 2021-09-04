@@ -8,7 +8,7 @@ namespace HyperaiShell.App.Plugins
     {
         public Type BelongingTo => typeof(TPlugin);
 
-        public IRepository Value => 
-        PluginManager.Instance.GetContextOfPlugin(BelongingTo).Repository.Value;
+        public IRepository Value =>
+            PluginManager.Instance.GetContextOfPlugin(BelongingTo).Repository.Value;
     }
 }

@@ -19,7 +19,7 @@ namespace Hyperai.Units
 
         public UnitBase CreateUnit(Type type, MessageContext context, IServiceProvider provider)
         {
-            var unit = (UnitBase) ActivatorUtilities.CreateInstance(provider, type);
+            var unit = (UnitBase)ActivatorUtilities.CreateInstance(provider, type);
             unit.Context = context;
             return unit;
         }

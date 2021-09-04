@@ -25,7 +25,7 @@ namespace HyperaiShell.Foundation.ModelExtensions
         /// <returns>完整的群员信息</returns>
         public static Member GetMember(this Group group, long identity)
         {
-            return client.RequestAsync(new Member {Identity = identity, Group = new Lazy<Group>(group)}).GetAwaiter()
+            return client.RequestAsync(new Member { Identity = identity, Group = new Lazy<Group>(group) }).GetAwaiter()
                 .GetResult();
         }
 

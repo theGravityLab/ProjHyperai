@@ -64,7 +64,7 @@ namespace Hyperai.Messages
 
         public static MessageChain Construct(params MessageElement[] components)
         {
-            return new(components);
+            return new MessageChain(components);
         }
     }
 }

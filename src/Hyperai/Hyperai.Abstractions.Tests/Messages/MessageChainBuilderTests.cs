@@ -14,7 +14,7 @@ namespace Hyperai.Abstractions.Tests.Messages
             // Arrange
             var builder = new MessageChainBuilder();
             builder.AddPlain("While I am a cat.");
-            var comp = new MessageChain(new List<MessageElement> {new Plain("While I am a cat.")});
+            var comp = new MessageChain(new List<MessageElement> { new Plain("While I am a cat.") });
             // Act
             var chain = builder.Build();
             // Assert

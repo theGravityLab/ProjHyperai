@@ -12,15 +12,15 @@ namespace Hyperai.Messages.ConcreteModels
             ImageId = imageId;
             Source = source;
         }
-        
+
         public static Flash FromUrl(string id, Uri url)
         {
-            return new(id, new UrlSource(url));
+            return new Flash(id, new UrlSource(url));
         }
 
         public static Flash FromStream(string id, Stream stream)
         {
-            return new(id, new StreamSource(stream));
+            return new Flash(id, new StreamSource(stream));
         }
     }
 }

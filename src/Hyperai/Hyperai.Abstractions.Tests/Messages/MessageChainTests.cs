@@ -12,8 +12,8 @@ namespace Hyperai.Abstractions.Tests.Messages
         public void ChainEquals_WithSame_ReturnsTrue()
         {
             // Arrange
-            var c1 = new MessageChain(new List<MessageElement> {new Plain("While I am a cat.")});
-            var c2 = new MessageChain(new List<MessageElement> {new Plain("While I am a cat.")});
+            var c1 = new MessageChain(new List<MessageElement> { new Plain("While I am a cat.") });
+            var c2 = new MessageChain(new List<MessageElement> { new Plain("While I am a cat.") });
             // Act
             var assert = c1.ChainEquals(c2);
             // Assert
@@ -24,8 +24,8 @@ namespace Hyperai.Abstractions.Tests.Messages
         public void ChainEquals_WithOther_ReturnsFalse()
         {
             // Arrange
-            var c1 = new MessageChain(new List<MessageElement> {new Plain("While I am a cat.")});
-            var c2 = new MessageChain(new List<MessageElement> {new Plain("While I am a dog.")});
+            var c1 = new MessageChain(new List<MessageElement> { new Plain("While I am a cat.") });
+            var c2 = new MessageChain(new List<MessageElement> { new Plain("While I am a dog.") });
             // Act
             var assert = c1.ChainEquals(c2);
             // Assert
@@ -36,7 +36,7 @@ namespace Hyperai.Abstractions.Tests.Messages
         public void ChainEquals_WithNull_ReturnsFalse()
         {
             // Arrange
-            var c1 = new MessageChain(new List<MessageElement> {new Plain("While I am a cat.")});
+            var c1 = new MessageChain(new List<MessageElement> { new Plain("While I am a cat.") });
             // Act
             var assert = c1.ChainEquals(null);
             // Assert

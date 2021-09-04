@@ -23,7 +23,7 @@ namespace Hyperai.Services
                 Message = message,
                 User = friend
             };
-            return (MessageReceipt) await client.SendAsync(args);
+            return (MessageReceipt)await client.SendAsync(args);
         }
 
         public static async Task<MessageReceipt> SendGroupMessageAsync(this IApiClient client, Group group,
@@ -34,7 +34,7 @@ namespace Hyperai.Services
                 Message = message,
                 Group = group
             };
-            return (MessageReceipt) await client.SendAsync(args);
+            return (MessageReceipt)await client.SendAsync(args);
         }
 
         public static async Task RevokeMessageAsync(this IApiClient client, long messageId)
@@ -64,11 +64,10 @@ namespace Hyperai.Services
             {
                 Group = group,
                 IsKicked = false,
-                Who = new Member()
+                Who = new Member
                 {
                     Group = new Lazy<Group>(group),
                     Identity = me.Identity
-                    
                 }
             };
             await client.SendAsync(args);

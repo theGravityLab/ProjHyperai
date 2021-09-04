@@ -1,31 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <PackageId>HyperaiShell.Foundation</PackageId>
-    <Version>2021.9.1</Version>
-    <Authors>GravityLab</Authors>
-    <Company>Unicore</Company>
-    <PackageDescription>Basics for HyperShell plugins</PackageDescription>
-    <RepositoryUrl>https://github.com/theGravityLab/HyperaiShell</RepositoryUrl>
-    <Product>HyperaiShell</Product>
-    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>HyperaiShell.Foundation</PackageId>
+        <Version>2021.9.1</Version>
+        <Authors>GravityLab</Authors>
+        <Company>Unicore</Company>
+        <PackageDescription>Basics for HyperShell plugins</PackageDescription>
+        <RepositoryUrl>https://github.com/theGravityLab/HyperaiShell</RepositoryUrl>
+        <Product>HyperaiShell</Product>
+        <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Hangfire.Core" Version="1.7.25" />
-    <PackageReference Include="LiteDB" Version="5.0.11" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Hangfire.Core" Version="1.7.25"/>
+        <PackageReference Include="LiteDB" Version="5.0.11"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0"/>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Hyperai.Units\Hyperai.Units.Abstractions\Hyperai.Units.Abstractions.csproj" />
-    <ProjectReference Include="..\..\Hyperai\Hyperai.Abstractions\Hyperai.Abstractions.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Hyperai.Units\Hyperai.Units.Abstractions\Hyperai.Units.Abstractions.csproj"/>
+        <ProjectReference Include="..\..\Hyperai\Hyperai.Abstractions\Hyperai.Abstractions.csproj"/>
+    </ItemGroup>
 </Project>

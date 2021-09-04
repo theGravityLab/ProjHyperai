@@ -10,9 +10,9 @@ namespace HyperaiShell.App.Services
 {
     public class AttachmentService : IAttachmentService
     {
+        private readonly IHub _hub;
         private readonly ILogger _logger;
         private readonly IRepository _repository;
-        private readonly IHub _hub;
 
         public AttachmentService(IRepository repository, ILogger<AttachmentService> logger, IHub hub)
         {
@@ -23,7 +23,8 @@ namespace HyperaiShell.App.Services
 
         public void Attach<T>(T ins, RelationModel toWhom)
         {
-            var transaction = _hub.StartTransaction($"{nameof(HyperaiShell)}-{nameof(AttachmentService)}",nameof(Attach)
+            var transaction = _hub.StartTransaction($"{nameof(HyperaiShell)}-{nameof(AttachmentService)}",
+                nameof(Attach)
                 , typeof(T).Name);
             var typeName = typeof(T).FullName;
             var first = _repository.Query<Attachment>()
@@ -49,7 +50,8 @@ namespace HyperaiShell.App.Services
 
         public void Detach<T>(RelationModel toWhom)
         {
-            var transaction = _hub.StartTransaction($"{nameof(HyperaiShell)}-{nameof(AttachmentService)}",nameof(Detach)
+            var transaction = _hub.StartTransaction($"{nameof(HyperaiShell)}-{nameof(AttachmentService)}",
+                nameof(Detach)
                 , typeof(T).Name);
             var typeName = typeof(T).FullName;
             var first = _repository.Query<Attachment>()
@@ -63,7 +65,7 @@ namespace HyperaiShell.App.Services
             var transaction = _hub.StartTransaction($"{nameof(HyperaiShell)}-{nameof(AttachmentService)}",
                 nameof(Retrieve), typeof(T).Name);
             var typeName = typeof(T).FullName;
-            var ins = (T) _repository.Query<Attachment>()
+            var ins = (T)_repository.Query<Attachment>()
                 .Where(x => x.Target == fromWhom.Identifier && x.TypeName == typeName).FirstOrDefault()?.Object;
             transaction.Finish();
             return ins;

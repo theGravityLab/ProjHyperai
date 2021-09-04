@@ -33,14 +33,14 @@ namespace Hyperai.Serialization
                     At it => it.TargetId.ToString(),
                     AtAll it => string.Empty,
                     Face it => it.FaceId.ToString(),
-                    ImageBase {Source: UrlSource} it =>
-                        $"{it.ImageId},{((UrlSource) it.Source).Url.AbsoluteUri}",
+                    ImageBase { Source: UrlSource } it =>
+                        $"{it.ImageId},{((UrlSource)it.Source).Url.AbsoluteUri}",
                     Poke it => it.Name.ToString(),
                     Quote it => it.MessageId.ToString(),
                     Source it => it.MessageId.ToString(),
                     Music it => $"{it.Type},{it.MusicId}",
 
-                    StreamedFileBase {Source: UrlSource} it => $"{((UrlSource)it.Source).Url.AbsoluteUri}",
+                    StreamedFileBase { Source: UrlSource } it => $"{((UrlSource)it.Source).Url.AbsoluteUri}",
 
                     _ => throw new NotImplementedException()
                 };

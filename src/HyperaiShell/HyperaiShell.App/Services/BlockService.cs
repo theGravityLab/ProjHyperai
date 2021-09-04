@@ -17,7 +17,7 @@ namespace HyperaiShell.App.Services
         public void Ban(long id, string reason)
         {
             _repository.Upsert(new BlockedUser
-                {UserId = id, Reason = reason, Enrollment = DateTime.Now, IsBanned = true});
+                { UserId = id, Reason = reason, Enrollment = DateTime.Now, IsBanned = true });
         }
 
         public void Deban(long id)

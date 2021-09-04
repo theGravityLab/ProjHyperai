@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Hyperai.Services;
 using Hyperai.Units;
 using HyperaiShell.App.Data;
-using HyperaiShell.App.Logging.ConsoleFormatters;
 using HyperaiShell.App.Packages;
 using HyperaiShell.App.Plugins;
 using HyperaiShell.Foundation;
@@ -22,16 +20,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NuGet.Packaging;
-using Ac682.Extensions.Logging.Console;
-using Sentry;
-using PluginManager = HyperaiShell.App.Plugins.PluginManager;
 
 namespace HyperaiShell.App
 {
     public class Program
     {
         private static ILogger _logger;
-        public async static Task Main()
+
+        public static async Task Main()
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
             // manager instance init
@@ -47,10 +43,7 @@ namespace HyperaiShell.App
                 .UseConsoleLifetime();
             // search packages and load
             var nupkgs = new Queue<string>();
-            foreach (var nupkg in Directory.GetFiles("plugins", "*.nupkg"))
-            {
-                nupkgs.Enqueue(nupkg);
-            }
+            foreach (var nupkg in Directory.GetFiles("plugins", "*.nupkg")) nupkgs.Enqueue(nupkg);
 
             await PackageManager.Instance.BeginBatchAsync(nupkgs);
 
@@ -82,7 +75,7 @@ namespace HyperaiShell.App
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            var exception = (Exception) e.ExceptionObject;
+            var exception = (Exception)e.ExceptionObject;
             if (e.IsTerminating)
             {
                 _logger.LogCritical(exception, "Terminating for uncaught exception");
@@ -133,7 +126,6 @@ namespace HyperaiShell.App
                         .OrderByDescending(x => x.TargetFramework.Version).FirstOrDefault();
 
                     if (content != null)
-                    {
                         foreach (var item in content.Items)
                         {
                             await using var contentStream = await reader.GetStreamAsync(item, CancellationToken.None);
@@ -142,8 +134,8 @@ namespace HyperaiShell.App
                             await contentStream.CopyToAsync(fileStream);
                             await fileStream.FlushAsync();
                         }
-                    }
                 }
+
                 var configFile = Path.Combine(meta.SpaceDirectory, "config.toml");
                 if (File.Exists(configFile))
                     context.Configuration =

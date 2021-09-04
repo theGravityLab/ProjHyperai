@@ -15,9 +15,9 @@ namespace HyperaiShell.App.Services
     public class BotService : IBotService
     {
         private readonly IApiClient _client;
+        private readonly IHub _hub;
         private readonly ILogger _logger;
         private readonly IServiceProvider _provider;
-        private readonly IHub _hub;
         private BotCollection bots;
 
         public BotService(IApiClient client, IServiceProvider provider, ILogger<BotService> logger, IHub hub)
@@ -81,6 +81,7 @@ namespace HyperaiShell.App.Services
                     await DoForAllAsync(x => x.OnGroupRequest(_client, it), self);
                     break;
             }
+
             await DoForAllAsync(x => x.OnEverything(_client, args), self);
             transaction.Finish();
         }

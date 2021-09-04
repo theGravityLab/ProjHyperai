@@ -46,32 +46,32 @@ namespace Hyperai.Relations
 
         public static Signature FromGroup(long groupId)
         {
-            return new($"{groupId}:*");
+            return new Signature($"{groupId}:*");
         }
 
         public static Signature FromMember(long groupId, long memberId)
         {
-            return new($"{groupId}:{memberId}");
+            return new Signature($"{groupId}:{memberId}");
         }
 
         public static Signature FromAnyGroup(long userId)
         {
-            return new($"*:{userId}");
+            return new Signature($"*:{userId}");
         }
 
         public static Signature FromAnyGroupAnyMember()
         {
-            return new("*:*");
+            return new Signature("*:*");
         }
 
         public static Signature FromFriend(long friendId)
         {
-            return new($"_:{friendId}");
+            return new Signature($"_:{friendId}");
         }
 
         public static Signature FromAnyFriend()
         {
-            return new("_:*");
+            return new Signature("_:*");
         }
     }
 }

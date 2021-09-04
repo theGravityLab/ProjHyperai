@@ -157,7 +157,7 @@ namespace Hyperai.Units
             string failureMessage = null;
             var pass = filterBys.All(x =>
             {
-                var filter = (FilterByAttribute) x;
+                var filter = (FilterByAttribute)x;
                 if (!filter.Filter.Check(context))
                 {
                     failureMessage = filter.FailureMessage;
@@ -171,7 +171,7 @@ namespace Hyperai.Units
                 if (failureMessage != null)
                 {
                     var chain = new MessageChain(new MessageElement[]
-                        {new Plain(entry.Action.Name + ": " + failureMessage)});
+                        { new Plain(entry.Action.Name + ": " + failureMessage) });
                     context.ReplyAsync(chain).Wait();
                 }
 
@@ -202,8 +202,8 @@ namespace Hyperai.Units
                             // => x is At) => GetMember(((At)names[para.Name].First(x => x is At)).TargetId),
                             // unit 不应该即时计算
                             _ when para.ParameterType != typeof(string) && para.ParameterType.IsValueType =>
-                                typeof(Convert).GetMethod("To" + para.ParameterType.Name, new[] {typeof(string)})
-                                    ?.Invoke(null, new object[] {_formatter.Format(names[para.Name!])}),
+                                typeof(Convert).GetMethod("To" + para.ParameterType.Name, new[] { typeof(string) })
+                                    ?.Invoke(null, new object[] { _formatter.Format(names[para.Name!]) }),
                             _ => throw new NotImplementedException("Pattern type not supported: " +
                                                                    para.ParameterType.FullName)
                         };

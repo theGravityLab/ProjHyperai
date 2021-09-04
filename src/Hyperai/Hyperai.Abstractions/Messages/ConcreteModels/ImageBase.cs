@@ -1,7 +1,4 @@
-﻿using System.IO;
-using Hyperai.Messages.ConcreteModels.FileSources;
-
-namespace Hyperai.Messages.ConcreteModels
+﻿namespace Hyperai.Messages.ConcreteModels
 {
     public abstract class ImageBase : StreamedFileBase
     {
@@ -11,8 +8,7 @@ namespace Hyperai.Messages.ConcreteModels
         {
             return ImageId.GetHashCode();
         }
-        
-        
+
 
         public override string ToString()
         {

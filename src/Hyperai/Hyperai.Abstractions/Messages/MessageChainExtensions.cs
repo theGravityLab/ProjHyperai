@@ -23,7 +23,7 @@ namespace Hyperai.Messages
         public static MessageChainBuilder MakeReply(this MessageChain chain)
         {
             var builder = new MessageChainBuilder();
-            builder.AddQuote(((Source) chain.First(x => x is Source)).MessageId);
+            builder.AddQuote(((Source)chain.First(x => x is Source)).MessageId);
             return builder;
         }
 
@@ -34,7 +34,7 @@ namespace Hyperai.Messages
         /// <returns>不包含不便于程序阅读元素的新链</returns>
         public static MessageChain AsReadable(this MessageChain chain)
         {
-            return new(chain.Where(x => !(x is Source)));
+            return new MessageChain(chain.Where(x => !(x is Source)));
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Hyperai.Messages
         /// <returns>包含不便发送元素的新链</returns>
         public static MessageChain AsSendable(this MessageChain chain)
         {
-            return new(chain.Where(x => !(x is Source) && !(x is Quote)));
+            return new MessageChain(chain.Where(x => !(x is Source) && !(x is Quote)));
         }
     }
 }

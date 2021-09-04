@@ -4,7 +4,7 @@
     {
         public long MessageId
         {
-            get => (long) this[nameof(MessageId)];
+            get => (long)this[nameof(MessageId)];
             set => this[nameof(MessageId)] = value;
         }
     }

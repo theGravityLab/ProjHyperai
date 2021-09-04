@@ -8,8 +8,8 @@ namespace HyperaiShell.App.Middlewares
 {
     public class BotMiddleware : IMiddleware
     {
-        private readonly IBotService _service;
         private readonly IHub _hub;
+        private readonly IBotService _service;
 
         public BotMiddleware(IBotService service, IHub hub)
         {

@@ -12,6 +12,9 @@
         /// </summary>
         public string Remark { get; set; }
 
-        public override string ToString() => $"{Remark ?? "NULL"}({Identifier ?? "UNKNOWN"})";
+        public override string ToString()
+        {
+            return $"{Remark ?? "NULL"}({Identifier ?? "UNKNOWN"})";
+        }
     }
 }

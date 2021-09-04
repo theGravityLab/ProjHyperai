@@ -49,7 +49,7 @@ namespace HyperaiShell.Foundation.ModelExtensions
         /// </returns>
         public static async Task RevokeAsync(this MessageChain chain)
         {
-            await _client.RevokeMessageAsync(((Source) chain.First(x => x is Source)).MessageId);
+            await _client.RevokeMessageAsync(((Source)chain.First(x => x is Source)).MessageId);
         }
 
         /// <summary>

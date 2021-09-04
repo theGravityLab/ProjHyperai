@@ -11,7 +11,7 @@ namespace Hyperai
 
         public HyperaiServerOptions Build()
         {
-            return new()
+            return new HyperaiServerOptions
             {
                 Middlewares = middlewares.AsReadOnly()
             };

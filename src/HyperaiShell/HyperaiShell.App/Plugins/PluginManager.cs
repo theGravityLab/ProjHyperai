@@ -1,17 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using HyperaiShell.App.Packages;
 using HyperaiShell.Foundation.Plugins;
 
 namespace HyperaiShell.App.Plugins
 {
     public class PluginManager
     {
-        public static PluginManager Instance { get; } = new();
+        private readonly IDictionary<Type, IPluginContext> plugins = new Dictionary<Type, IPluginContext>();
 
         private PluginManager()
         {
@@ -19,13 +14,13 @@ namespace HyperaiShell.App.Plugins
             // 不应该挂钩子，应该在一个统一的时间点去遍历找 PluginBase
         }
 
-        private IDictionary<Type, IPluginContext> plugins = new Dictionary<Type, IPluginContext>();
+        public static PluginManager Instance { get; } = new();
 
         public void RegisterPlugin(Type plugin, IPluginContext context)
         {
             if (!plugin.IsSubclassOf(typeof(PluginBase)))
                 throw new ArgumentException("Not derives from PluginBase", nameof(plugin));
-            
+
             plugins.Add(plugin, context);
         }
 
@@ -33,7 +28,7 @@ namespace HyperaiShell.App.Plugins
         {
             if (plugins.ContainsKey(type))
             {
-                var plugin = (PluginBase) Activator.CreateInstance(type);
+                var plugin = (PluginBase)Activator.CreateInstance(type);
                 plugin.Context = plugins[type];
                 return plugin;
             }
@@ -43,16 +38,17 @@ namespace HyperaiShell.App.Plugins
 
         public void ActivateAll(Action<PluginBase> configure)
         {
-            foreach (var type in GetManagedPlugins())
-            {
-                configure(Activate(type));
-            }
+            foreach (var type in GetManagedPlugins()) configure(Activate(type));
         }
 
-        public IEnumerable<Type> GetManagedPlugins() => plugins.Keys;
+        public IEnumerable<Type> GetManagedPlugins()
+        {
+            return plugins.Keys;
+        }
 
-        public IPluginContext GetContextOfPlugin(Type plugin) =>
-            plugins[plugin];
-        
+        public IPluginContext GetContextOfPlugin(Type plugin)
+        {
+            return plugins[plugin];
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Hyperai.Units.Abstractions.Tests.Attributes
             // A & A
             var attr = new ExtractAttribute("!at [hyper.at({who})]");
             // A
-            Assert.IsTrue(attr.Names.SequenceEqual(new[] {"who"}));
+            Assert.IsTrue(attr.Names.SequenceEqual(new[] { "who" }));
         }
 
         [TestMethod]

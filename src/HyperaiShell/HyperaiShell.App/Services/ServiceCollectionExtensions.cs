@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Hangfire.Dashboard;
 using Hyperai.Services;
 using HyperaiShell.Foundation.Services;
 using Microsoft.Extensions.Configuration;

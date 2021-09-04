@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -17,37 +15,24 @@ namespace HyperaiShell.App.Packages
 {
     public class PackageManager
     {
-        #region Singleton
-
-        public static PackageManager Instance { get; } = new();
-
-        private PackageManager()
-        {
-        }
-
-        #endregion
-
-        public Action<string, PackageArchiveReader, IEnumerable<Assembly>> PluginPackageLoaded { get; set; }
-
-
-        private List<string> loadedIdentities = new();
-
         private readonly SourceCacheContext cacheContext = new();
 
         private readonly SourceRepository repository =
             Repository.Factory.GetCoreV3("https://api.nuget.org/v3/index.json");
 
 
+        private readonly List<string> loadedIdentities = new();
+
+        public Action<string, PackageArchiveReader, IEnumerable<Assembly>> PluginPackageLoaded { get; set; }
+
+
         public async Task BeginBatchAsync(IEnumerable<string> files)
         {
             var queue = new Queue<string>();
-            foreach (var file in files)
-            {
-                queue.Enqueue(file);
-            }
+            foreach (var file in files) queue.Enqueue(file);
 
-            int tCount = queue.Count;
-            int nCount = 0;
+            var tCount = queue.Count;
+            var nCount = 0;
             while (queue.Count > 0)
             {
                 var now = queue.Dequeue();
@@ -74,10 +59,7 @@ namespace HyperaiShell.App.Packages
         {
             await using var stream = File.OpenRead(file);
             var (reader, assemblies) = await LoadPackageAsync(stream);
-            if (reader != null)
-            {
-                OnPluginPackageLoaded(file, reader, assemblies);
-            }
+            if (reader != null) OnPluginPackageLoaded(file, reader, assemblies);
 
             return (reader, assemblies);
         }
@@ -138,14 +120,14 @@ namespace HyperaiShell.App.Packages
             if (CheckIfNoNeed(identity)) return null;
             var packagesDir = Path.Combine(Environment.CurrentDirectory, "cache", "packages");
             Directory.CreateDirectory(packagesDir);
-            var file = Path.Combine("cache","packages",$"{identity}.{version}.nupkg");
+            var file = Path.Combine("cache", "packages", $"{identity}.{version}.nupkg");
             if (!File.Exists(file))
             {
                 var resource = await repository.GetResourceAsync<FindPackageByIdResource>(CancellationToken.None);
                 var found =
                     (await resource.GetAllVersionsAsync(identity, cacheContext, NullLogger.Instance,
                         CancellationToken.None)).FirstOrDefault(x => x.Version == version);
-                if(version != null)
+                if (version != null)
                 {
                     var local = Path.Combine("cache", "packages",
                         $"{identity}.{found.Version}.nupkg");
@@ -160,5 +142,15 @@ namespace HyperaiShell.App.Packages
 
             return file;
         }
+
+        #region Singleton
+
+        public static PackageManager Instance { get; } = new();
+
+        private PackageManager()
+        {
+        }
+
+        #endregion
     }
 }

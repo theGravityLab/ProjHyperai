@@ -24,7 +24,8 @@ namespace Hyperai.Serialization
                 "source" => new Source(Convert.ToInt32(code)),
                 "video" => new Video(new UrlSource(new Uri(code, UriKind.Absolute))),
                 "voice" => new Voice(new UrlSource(new Uri(code, UriKind.Absolute))),
-                "muisc" => new Music(Enum.Parse<Music.MusicSource>(code.Substring(0, code.IndexOf(','))), code[(code.IndexOf(',') + 1)..]),
+                "muisc" => new Music(Enum.Parse<Music.MusicSource>(code.Substring(0, code.IndexOf(','))),
+                    code[(code.IndexOf(',') + 1)..]),
 
                 _ => throw new NotImplementedException()
             };

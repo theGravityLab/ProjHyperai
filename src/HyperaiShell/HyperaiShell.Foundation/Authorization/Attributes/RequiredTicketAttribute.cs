@@ -14,7 +14,7 @@ namespace HyperaiShell.Foundation.Authorization.Attributes
         ///     检查是否具有某个特定的 <see cref="TicketBase" />
         /// </summary>
         /// <param name="specificName">票据(不含通配符</param>
-        public RequiredTicketAttribute(string specificName) : base(new CheckTicketFilter(new[] {specificName}),
+        public RequiredTicketAttribute(string specificName) : base(new CheckTicketFilter(new[] { specificName }),
             MESSAGE + specificName)
         {
         }

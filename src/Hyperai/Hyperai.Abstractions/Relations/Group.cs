@@ -25,6 +25,9 @@ namespace Hyperai.Relations
         /// </summary>
         public Lazy<Member> Owner { get; set; }
 
-        public override string ToString() => $"{Name ?? "NULL"}({Identifier ?? "UNKNOWN"})";
+        public override string ToString()
+        {
+            return $"{Name ?? "NULL"}({Identifier ?? "UNKNOWN"})";
+        }
     }
 }

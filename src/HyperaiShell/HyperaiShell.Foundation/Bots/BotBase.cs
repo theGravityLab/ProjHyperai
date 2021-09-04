@@ -1,6 +1,5 @@
 ﻿using Hyperai.Events;
 using Hyperai.Relations;
-using Hyperai.Services;
 
 namespace HyperaiShell.Foundation.Bots
 {

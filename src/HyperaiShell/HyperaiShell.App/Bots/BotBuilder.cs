@@ -16,7 +16,7 @@ namespace HyperaiShell.App.Bots
 
         public BotBase Build(IServiceProvider provider)
         {
-            var bot = (BotBase) ActivatorUtilities.CreateInstance(provider, _botType);
+            var bot = (BotBase)ActivatorUtilities.CreateInstance(provider, _botType);
             _configure?.Invoke(bot);
 
             return bot;

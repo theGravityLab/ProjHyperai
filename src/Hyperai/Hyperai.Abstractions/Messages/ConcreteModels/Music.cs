@@ -1,12 +1,13 @@
-using System;
-
 namespace Hyperai.Messages.ConcreteModels
 {
-    public class Music: MessageElement
+    public class Music : MessageElement
     {
-        public string MusicId { get; set; }
-        
-        public MusicSource Type { get; set; }
+        public enum MusicSource
+        {
+            QqMusic,
+            Music163,
+            XiaMi
+        }
 
         public Music(MusicSource type, string id)
         {
@@ -14,13 +15,13 @@ namespace Hyperai.Messages.ConcreteModels
             MusicId = id;
         }
 
-        public override int GetHashCode() => MusicId.GetHashCode();
+        public string MusicId { get; set; }
 
-        public enum MusicSource
+        public MusicSource Type { get; set; }
+
+        public override int GetHashCode()
         {
-            QqMusic,
-            Music163,
-            XiaMi
+            return MusicId.GetHashCode();
         }
     }
 }

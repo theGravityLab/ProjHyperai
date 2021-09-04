@@ -20,7 +20,7 @@ namespace Hyperai.Messages
 
         public static MessageChainBuilder AddFace(this MessageChainBuilder builder, FaceType type)
         {
-            return AddFace(builder, (int) type);
+            return AddFace(builder, (int)type);
         }
 
         public static MessageChainBuilder AddFace(this MessageChainBuilder builder, int faceId)

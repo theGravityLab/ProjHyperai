@@ -15,12 +15,12 @@ namespace Hyperai.Messages.ConcreteModels
 
         public static Image FromUrl(string id, Uri url)
         {
-            return new(id, new UrlSource(url));
+            return new Image(id, new UrlSource(url));
         }
 
         public static Image FromStream(string id, Stream stream)
         {
-            return new(id, new StreamSource(stream));
+            return new Image(id, new StreamSource(stream));
         }
     }
 }
