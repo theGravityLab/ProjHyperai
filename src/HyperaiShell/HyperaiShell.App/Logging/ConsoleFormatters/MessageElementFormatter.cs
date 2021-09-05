@@ -13,14 +13,14 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             return type.IsAssignableTo(typeof(MessageElement));
         }
 
-        public Markup Format(object obj, Type type, string format = null)
+        public string Format(object obj, Type type, string format = null)
         {
-            return new Markup(obj switch
+            return obj switch
             {
                 Plain plain => $"[green]{plain.Text}[/]",
                 MessageElement ele => $"[darkcyan]{ele}[/]",
                 _ => "[grey](UNKNOW)[/]"
-            });
+            };
         }
     }
 }

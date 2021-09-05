@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
 using NuGet.Common;
+using NuGet.Frameworks;
 using NuGet.Packaging;
 using NuGet.Packaging.Core;
 using NuGet.Protocol;
@@ -37,7 +39,11 @@ namespace HyperaiShell.App.Packages
             {
                 var now = queue.Dequeue();
                 var (reader, assemblies) =
-                    nCount < tCount ? await LoadPluginPackageAsync(now) : await LoadDependencyPackageAsync(now);
+                    nCount < tCount
+                        ? await LoadPluginPackageAsync(now)
+                        : await LoadDependencyPackageAsync(now);
+
+                if (reader == null) continue;
 
                 var depGroup = (await reader.GetPackageDependenciesAsync(CancellationToken.None))
                     .OrderByDescending(x => x.TargetFramework.Version).FirstOrDefault();
@@ -80,25 +86,35 @@ namespace HyperaiShell.App.Packages
 
             var assemblies = new List<Assembly>();
             var libGroup = (await reader.GetLibItemsAsync(CancellationToken.None))
-                .OrderByDescending(x => x.TargetFramework.Version).FirstOrDefault();
+                .OrderByDescending(x => x.TargetFramework, new NuGetFrameworkSorter()).FirstOrDefault();
             foreach (var item in libGroup?.Items ?? Enumerable.Empty<string>())
             {
                 if (!item.EndsWith(".dll", StringComparison.CurrentCultureIgnoreCase)) continue;
+                if (item.Count(x => x == '/' || x == '\\') > 2) continue; // skip net50/*culture*/*.resource.dll
                 var libStream = reader.GetStream(item);
-                var path = Path.Combine("cache", $"{Guid.NewGuid().ToString()}.dll");
-                Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-                var fileStream = File.OpenWrite(path);
-                await libStream.CopyToAsync(fileStream);
-                await fileStream.FlushAsync();
-                fileStream.Close();
-                libStream.Close();
-
-                var assembly = Assembly.LoadFrom(path);
+                var buffer = new MemoryStream();
+                await libStream.CopyToAsync(buffer);
+                buffer.Position = 0;
+                var bytes = new byte[buffer.Length];
+                buffer.Read(bytes, 0, bytes.Length);
+                var assembly = Assembly.Load(bytes);
                 assemblies.Add(assembly);
+                buffer.Close();
+                libStream.Close();
             }
 
             loadedIdentities.Add(identity.Id);
             return (reader, assemblies);
+        }
+
+        public Assembly FindAssembly(string assemblyName)
+        {
+            foreach (var assembly in AssemblyLoadContext.All.SelectMany(x => x.Assemblies))
+            {
+                if (assembly.GetName().Name == new AssemblyName(assemblyName).Name) return assembly;
+            }
+
+            return null;
         }
 
         protected void OnPluginPackageLoaded(string file, PackageArchiveReader reader, IEnumerable<Assembly> assemblies)
@@ -109,10 +125,8 @@ namespace HyperaiShell.App.Packages
 
         private bool CheckIfNoNeed(string identity)
         {
-            return loadedIdentities.Contains(identity) ||
-                   AppDomain.CurrentDomain.GetAssemblies().Any(x => x.GetName().FullName == identity);
+            return loadedIdentities.Contains(identity);
         }
-
 
         private async Task<string> LocatePackageAsync(string identity, Version version)
         {

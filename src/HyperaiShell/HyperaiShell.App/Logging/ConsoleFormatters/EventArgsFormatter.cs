@@ -12,9 +12,9 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             return type.IsAssignableTo(typeof(GenericEventArgs));
         }
 
-        public Markup Format(object obj, Type type, string format = null)
+        public string Format(object obj, Type type, string format = null)
         {
-            return new Markup(obj.GetType().Name, new Style(Color.Yellow));
+            return $"[yellow]{obj.GetType().Name}[/]";
         }
     }
 }

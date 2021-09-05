@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Hyperai.Services;
+using HyperaiShell.App.Packages;
 using HyperaiShell.Foundation.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

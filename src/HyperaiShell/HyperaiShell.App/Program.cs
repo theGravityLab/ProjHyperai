@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
 using Hyperai.Services;
@@ -19,7 +20,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NuGet.Common;
+using NuGet.Frameworks;
 using NuGet.Packaging;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace HyperaiShell.App
 {
@@ -30,6 +34,7 @@ namespace HyperaiShell.App
         public static async Task Main()
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
             // manager instance init
             PackageManager.Instance.PluginPackageLoaded = PluginPackageLoaded;
 
@@ -54,7 +59,7 @@ namespace HyperaiShell.App
             _logger = Shared.Host.Services.GetRequiredService<ILogger<Program>>();
 
             Welcome();
-
+            
             var botService = Shared.Host.Services.GetRequiredService<IBotService>();
             var unitService = Shared.Host.Services.GetRequiredService<IUnitService>();
             unitService.SearchForUnits();
@@ -71,6 +76,11 @@ namespace HyperaiShell.App
             // TEST HERE
 
             await task;
+        }
+
+        private static Assembly? CurrentDomainOnAssemblyResolve(object? sender, ResolveEventArgs args)
+        {
+            return PackageManager.Instance.FindAssembly(args.Name);
         }
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -123,16 +133,14 @@ namespace HyperaiShell.App
                     Directory.CreateDirectory(meta.SpaceDirectory);
 
                     var content = (await reader.GetContentItemsAsync(CancellationToken.None))
-                        .OrderByDescending(x => x.TargetFramework.Version).FirstOrDefault();
+                        .OrderByDescending(x => x.TargetFramework, new NuGetFrameworkSorter()).FirstOrDefault();
 
                     if (content != null)
                         foreach (var item in content.Items)
                         {
-                            await using var contentStream = await reader.GetStreamAsync(item, CancellationToken.None);
-                            await using var fileStream = File.OpenWrite(Path.Combine(meta.SpaceDirectory,
-                                item.Substring(item.IndexOf('/') + 1)));
-                            await contentStream.CopyToAsync(fileStream);
-                            await fileStream.FlushAsync();
+                            var path = Path.Combine(meta.SpaceDirectory,
+                                item.Substring(item.IndexOf('/') + 1));
+                            reader.ExtractFile(item, path, NullLogger.Instance);
                         }
                 }
 

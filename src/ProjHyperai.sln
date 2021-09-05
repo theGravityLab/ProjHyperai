@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperaiShell.Foundation", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hyperai.Units", "Hyperai.Units", "{258456DF-A2E4-479E-A8B8-BB37808DF52E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{3AA5B0CE-B5F2-437E-B7CF-FEFDC2787656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{8D1283A6-6DBF-49F7-A67C-56D00F873A46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,8 +37,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3AA5B0CE-B5F2-437E-B7CF-FEFDC2787656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AA5B0CE-B5F2-437E-B7CF-FEFDC2787656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1283A6-6DBF-49F7-A67C-56D00F873A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1283A6-6DBF-49F7-A67C-56D00F873A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D55EEA6-59E4-4FE6-8240-B26390C56D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D55EEA6-59E4-4FE6-8240-B26390C56D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D55EEA6-59E4-4FE6-8240-B26390C56D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -12,7 +12,7 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
             return type.IsAssignableTo(typeof(RelationModel));
         }
 
-        public Markup Format(object obj, Type type, string format = null)
+        public string Format(object obj, Type type, string format = null)
         {
             var name = obj switch
             {
@@ -22,7 +22,7 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
                 RelationModel model => model.Identity.ToString(),
                 _ => obj.GetType().Name
             };
-            return new Markup($"[purple]{name}[/][grey]([/][red]{((RelationModel)obj).Identity}[/][grey])[/]");
+            return $"[purple]{name}[/][grey]([/][red]{((RelationModel)obj).Identity}[/][grey])[/]";
         }
     }
 }
