@@ -2,7 +2,6 @@ using System;
 using Ac682.Extensions.Logging.Console;
 using Hyperai.Messages;
 using Hyperai.Messages.ConcreteModels;
-using Spectre.Console;
 
 namespace HyperaiShell.App.Logging.ConsoleFormatters
 {

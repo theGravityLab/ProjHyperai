@@ -19,11 +19,11 @@ namespace HyperaiShell.App.Packages
     {
         private readonly SourceCacheContext cacheContext = new();
 
-        private readonly SourceRepository repository =
-            Repository.Factory.GetCoreV3("https://api.nuget.org/v3/index.json");
-
 
         private readonly List<string> loadedIdentities = new();
+
+        private readonly SourceRepository repository =
+            Repository.Factory.GetCoreV3("https://api.nuget.org/v3/index.json");
 
         public Action<string, PackageArchiveReader, IEnumerable<Assembly>> PluginPackageLoaded { get; set; }
 
@@ -110,9 +110,8 @@ namespace HyperaiShell.App.Packages
         public Assembly FindAssembly(string assemblyName)
         {
             foreach (var assembly in AssemblyLoadContext.All.SelectMany(x => x.Assemblies))
-            {
-                if (assembly.GetName().Name == new AssemblyName(assemblyName).Name) return assembly;
-            }
+                if (assembly.GetName().Name == new AssemblyName(assemblyName).Name)
+                    return assembly;
 
             return null;
         }

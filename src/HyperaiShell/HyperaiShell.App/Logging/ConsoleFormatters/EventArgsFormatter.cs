@@ -1,7 +1,6 @@
 using System;
 using Ac682.Extensions.Logging.Console;
 using Hyperai.Events;
-using Spectre.Console;
 
 namespace HyperaiShell.App.Logging.ConsoleFormatters
 {

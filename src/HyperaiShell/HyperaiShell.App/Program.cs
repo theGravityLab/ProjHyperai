@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
 using Hyperai.Services;
@@ -59,7 +58,7 @@ namespace HyperaiShell.App
             _logger = Shared.Host.Services.GetRequiredService<ILogger<Program>>();
 
             Welcome();
-            
+
             var botService = Shared.Host.Services.GetRequiredService<IBotService>();
             var unitService = Shared.Host.Services.GetRequiredService<IUnitService>();
             unitService.SearchForUnits();

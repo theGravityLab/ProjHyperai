@@ -9,9 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
-        <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
-        <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0"/>
+        <PackageReference Include="MSTest.TestAdapter" Version="2.2.7"/>
+        <PackageReference Include="MSTest.TestFramework" Version="2.2.7"/>
         <PackageReference Include="coverlet.collector" Version="3.1.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Hyperai.Core\Hyperai.Core.csproj" />
+        <ProjectReference Include="..\Hyperai.Core\Hyperai.Core.csproj"/>
     </ItemGroup>
 
 </Project>
