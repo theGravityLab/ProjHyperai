@@ -14,7 +14,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ac682.Extensions.Logging.Console" Version="0.4.1" />
+        <PackageReference Include="Ac682.Extensions.Logging.Console" Version="0.4.2" />
         <PackageReference Include="Alexinea.Extensions.Configuration.Toml" Version="5.0.0" />
         <PackageReference Include="Hangfire.AspNetCore" Version="1.7.25" />
         <PackageReference Include="Hangfire.Storage.SQLite" Version="0.3.0" />

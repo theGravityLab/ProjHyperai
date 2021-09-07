@@ -17,7 +17,7 @@ namespace HyperaiShell.App.Logging.ConsoleFormatters
         {
             return obj switch
             {
-                Plain plain => $"[green]{plain.Text}[/]",
+                Plain plain => $"[green]\"{plain.Text}\"[/]",
                 MessageElement ele => $"[darkcyan]{ele}[/]",
                 _ => "[grey](UNKNOW)[/]"
             };
