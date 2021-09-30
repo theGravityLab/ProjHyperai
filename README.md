@@ -93,7 +93,7 @@ public override void OnMemberLeave(object sender, GroupMemberLeaveEventArgs args
 #### 消息处理 | Message Handling
 
 ```csharp
-// MessageChain 本质是 IEnumerabe<MessageComponent>,
+// MessageChain 本质是 IEnumerable<MessageComponent>,
 // 能用所有的 Linq 语句.
 // 这就够了.
 
